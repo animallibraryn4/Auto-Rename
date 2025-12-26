@@ -19,20 +19,20 @@ class Config(object):
 
     # database config
     DB_NAME = os.environ.get("DB_NAME", "RexBots")     
-    DB_URL  = os.environ.get("DB_URL", "")
+    DB_URL  = os.environ.get("DB_URL", "mongodb+srv://mikota4432:jkJDQuZH6o8pxxZe@cluster0.2vngilq.mongodb.net/?retryWrites=true&w=majority")
  
     # other configs
     ADMIN_URL = "https://t.me/adityaabhinav"
-    DUMP_CHANNEL = os.environ.get("DUMP_CHANNEL", "-1002257657458")
+    DUMP_CHANNEL = os.environ.get("DUMP_CHANNEL", "-1002263636517")
     DUMP = True
     BOT_UPTIME  = time.time()
     START_PIC   = os.environ.get("START_PIC", "https://ibb.co/Cs0zsrCn")
     LEADERBOARD_PIC = os.environ.get("LEADERBOARD_PIC", "https://ibb.co/RGx4RmDg")
-    OWNER_ID = int(os.environ.get("OWNER_ID", "6701907262"))
-    SUPPORT_CHAT = int(os.environ.get("SUPPORT_CHAT", "-1002871570975"))
-    LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", ""))
-    FSUB_PIC = os.environ.get("FSUB_PIC", "")
-    BOT_USERNAME = os.environ.get("BOT_USERNAME", "")
+    OWNER_ID = int(os.environ.get("OWNER_ID", "5380609667"))
+    SUPPORT_CHAT = int(os.environ.get("SUPPORT_CHAT", ""))
+    LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", "-1002263636517"))
+    FSUB_PIC = os.environ.get("FSUB_PIC", "https://ibb.co/Cs0zsrCn")
+    BOT_USERNAME = os.environ.get("BOT_USERNAME", "Anime_Library_N4")
     LEADERBOARD_DELETE_TIMER = 30
     # wes response configuration     
     WEBHOOK = bool(os.environ.get("WEBHOOK", "True"))
