@@ -10,25 +10,19 @@ from aiohttp import web
 from route import web_server
 import pyrogram.utils
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-# ----------------------------------------
-# 𝐌𝐀𝐃𝐄 𝐁𝐘 𝐀𝐁𝐇𝐈
-# 𝐓𝐆 𝐈𝐃 : @𝐂𝐋𝐔𝐓𝐂𝐇𝟎𝟎𝟖
-# 𝐀𝐍𝐘 𝐈𝐒𝐒𝐔𝐄𝐒 𝐎𝐑 𝐀𝐃𝐃𝐈𝐍𝐆 𝐌𝐎𝐑𝐄 𝐓𝐇𝐈𝐍𝐆𝐬 𝐂𝐀𝐍 𝐂𝐎𝐍𝐓𝐀𝐂𝐓 𝐌𝐄
-# --
+
 pyrogram.utils.MIN_CHANNEL_ID = -1002964099736
-# ----------------------------------------
-# 𝐌𝐀𝐃𝐄 𝐁𝐘 𝐀𝐁𝐇𝐈
-# 𝐓𝐆 𝐈𝐃 : @𝐂𝐋𝐔𝐓𝐂𝐇𝟎𝟎𝟖
-# 𝐀𝐍𝐘 𝐈𝐒𝐒𝐔𝐄𝐒 𝐎𝐑 𝐀𝐃𝐃𝐈𝐍𝐆 𝐌𝐎𝐑𝐄 𝐓𝐇𝐈𝐍𝐆𝐬 𝐂𝐀𝐍 𝐂𝐎𝐍𝐓𝐀𝐂𝐓 𝐌𝐄
-# --
+
 PORT = Config.PORT
-# ----------------------------------------
-# 𝐌𝐀𝐃𝐄 𝐁𝐘 𝐀𝐁𝐇𝐈
-# 𝐓𝐆 𝐈𝐃 : @𝐂𝐋𝐔𝐓𝐂𝐇𝟎𝟎𝟖
-# 𝐀𝐍𝐘 𝐈𝐒𝐒𝐔𝐄𝐒 𝐎𝐑 𝐀𝐃𝐃𝐈𝐍𝐆 𝐌𝐎𝐑𝐄 𝐓𝐇𝐈𝐍𝐆𝐬 𝐂𝐀𝐍 𝐂𝐎𝐍𝐓𝐀𝐂𝐓 𝐌𝐄
-# --
+
 class Bot(Client):
     def __init__(self):
+        BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+        SESSION_DIR = os.path.join(BASE_DIR, "sessions")
+
+        # make sure session directory exists
+        os.makedirs(SESSION_DIR, exist_ok=True)
+
         super().__init__(
             name="rexbots",
             api_id=Config.API_ID,
@@ -37,7 +31,9 @@ class Bot(Client):
             workers=200,
             plugins={"root": "plugins"},
             sleep_threshold=15,
+            workdir=SESSION_DIR,   # ✅ THIS IS THE FIX
         )
+
         self.start_time = time.time()
 # ----------------------------------------
 # 𝐌𝐀𝐃𝐄 𝐁𝐘 𝐀𝐁𝐇𝐈
