@@ -30,14 +30,16 @@ PORT = Config.PORT
 class Bot(Client):
     def __init__(self):
         super().__init__(
-            name="rexbots",
+            name=":memory:",          # ✅ disables SQLite completely
             api_id=Config.API_ID,
             api_hash=Config.API_HASH,
             bot_token=Config.BOT_TOKEN,
             workers=200,
             plugins={"root": "plugins"},
             sleep_threshold=15,
+            in_memory=True,           # ✅ force memory session
         )
+
         self.start_time = time.time()
 # ----------------------------------------
 # 𝐌𝐀𝐃𝐄 𝐁𝐘 𝐀𝐁𝐇𝐈
