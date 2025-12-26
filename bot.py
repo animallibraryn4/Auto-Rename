@@ -29,6 +29,10 @@ PORT = Config.PORT
 # --
 class Bot(Client):
     def __init__(self):
+        SESSION_DIR = "/tmp/pyrogram_sessions"
+
+        os.makedirs(SESSION_DIR, exist_ok=True)
+
         super().__init__(
             name="rexbots",
             api_id=Config.API_ID,
@@ -37,7 +41,9 @@ class Bot(Client):
             workers=200,
             plugins={"root": "plugins"},
             sleep_threshold=15,
+            workdir=SESSION_DIR,   # ✅ GUARANTEED WRITABLE
         )
+
         self.start_time = time.time()
 # ----------------------------------------
 # 𝐌𝐀𝐃𝐄 𝐁𝐘 𝐀𝐁𝐇𝐈
